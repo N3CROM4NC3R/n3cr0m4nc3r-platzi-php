@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<div class="border m-5 p-4">
+    <form method="POST" action="\n3cr0m4nc3r-platzi-php\users\register">
+        <h1 class="display-1 text-center">Register User</h1>
+        {% if message %}
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+        {% endif %}
+        {% if errorUserRegistered %}
+        <div class="alert alert-danger" role="alert">
+            User already registered!
+        </div>
+        {% endif %}
+        <div class="form-group m-1">
+            <label for="title">Email:</label>
+            {% if errors.email %}
+            <div class="alert alert-danger" role="alert">
+                {{ errors.email }}
+            </div>
+            {% endif %}
+            <input required class="form-control" type="email" name="email" placeholder="Email">
+        </div>
+        <div class="form-group m-1">
+            <label for="description">Password:</label>
+            {% if errors.password %}
+            <div class="alert alert-danger" role="alert">
+                {{errors.password}}
+            </div>
+            {% endif %}
+            <input  required class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="button">Register</button>
+    </form>
+</div>
+{% endblock %}
